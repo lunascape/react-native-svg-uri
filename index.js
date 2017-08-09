@@ -181,6 +181,13 @@ class SvgUri extends Component {
           styleAtts[key] = styleClasses[classObj.nodeValue][key]
         }
       })
+      if (this.props.classes && this.props.classes[classObj.nodeValue]) {
+        Object.keys(this.props.classes[classObj.nodeValue]).forEach(key => {
+          if (utils.getEnabledAttributes(enabledAttributes.concat(COMMON_ATTS))({nodeName: key})) {
+            styleAtts[key] = this.props.classes[classObj.nodeValue][key]
+          }
+        })
+      }
     }
 
     Array.from(attributes).forEach(({nodeName, nodeValue}) => {
