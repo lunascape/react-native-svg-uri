@@ -27,6 +27,7 @@ react-native link react-native-svg # not react-native-svg-uri !!!
 | `source` | `ImageSource` |  | Same kind of `source` prop that `<Image />` component has
 | `svgXmlData` | `String` |  | You can pass the SVG as String directly
 | `fill` | `Color` |  | Overrides all fill attributes of the svg file
+| `classes` | `Object` |  | Overrides attributes of classes, only those attributes present in the given object
 
 ## Known Bugs
 
@@ -47,6 +48,7 @@ const TestSvgUri = () => (
       width="200"
       height="200"
       source={{uri:'http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg'}}
+      classes={{'cls-1': {strokeWidth: 5}}}
     />
   </View>
 );
