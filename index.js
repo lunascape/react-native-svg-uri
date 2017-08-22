@@ -1,6 +1,7 @@
 'use strict'
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
 import { View } from 'react-native'
+import PropTypes from 'prop-types'
 import xmldom from 'xmldom'
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
