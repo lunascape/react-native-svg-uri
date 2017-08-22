@@ -1,5 +1,5 @@
 'use strict'
-import React from 'react'
+import React, { Component } from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import xmldom from 'xmldom'
