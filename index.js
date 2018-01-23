@@ -234,6 +234,7 @@ class SvgUri extends Component {
       if (this.state.svgXmlData == null)
         return null
 
+      ind = 0
       let inputSVG = this.state.svgXmlData.substring(this.state.svgXmlData.indexOf('<svg '), (this.state.svgXmlData.indexOf('</svg>') + 6))
 
       let doc = new xmldom.DOMParser().parseFromString(inputSVG)
