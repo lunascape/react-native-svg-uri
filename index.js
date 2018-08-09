@@ -167,48 +167,48 @@ class SvgUri extends Component{
 
       return <Svg key={i} {...componentAtts}>{childs}</Svg>;
     case 'g':
-      componentAtts = this.obtainComponentAtts(node, G_ATTS);
+      componentAtts = this.obtainComponentAtts(node, G_ATTS, styleClasses);
       return <G key={i} {...componentAtts}>{childs}</G>;
     case 'path':
-      componentAtts = this.obtainComponentAtts(node, PATH_ATTS);
+      componentAtts = this.obtainComponentAtts(node, PATH_ATTS, styleClasses);
       return <Path key={i} {...componentAtts}>{childs}</Path>;
     case 'circle':
-      componentAtts = this.obtainComponentAtts(node, CIRCLE_ATTS);
+      componentAtts = this.obtainComponentAtts(node, CIRCLE_ATTS, styleClasses);
       return <Circle key={i} {...componentAtts}>{childs}</Circle>;
     case 'rect':
-      componentAtts = this.obtainComponentAtts(node, RECT_ATTS);
+      componentAtts = this.obtainComponentAtts(node, RECT_ATTS, styleClasses);
       return <Rect key={i} {...componentAtts}>{childs}</Rect>;
     case 'line':
-      componentAtts = this.obtainComponentAtts(node, LINE_ATTS);
+      componentAtts = this.obtainComponentAtts(node, LINE_ATTS, styleClasses);
       return <Line key={i} {...componentAtts}>{childs}</Line>;
     case 'defs':
       return <Defs key={i}>{childs}</Defs>;
     case 'linearGradient':
-      componentAtts = this.obtainComponentAtts(node, LINEARG_ATTS);
+      componentAtts = this.obtainComponentAtts(node, LINEARG_ATTS, styleClasses);
       return <LinearGradient key={i} {...componentAtts}>{childs}</LinearGradient>;
     case 'radialGradient':
-      componentAtts = this.obtainComponentAtts(node, RADIALG_ATTS);
+      componentAtts = this.obtainComponentAtts(node, RADIALG_ATTS, styleClasses);
       return <RadialGradient key={i} {...componentAtts}>{childs}</RadialGradient>;
     case 'stop':
-      componentAtts = this.obtainComponentAtts(node, STOP_ATTS);
+      componentAtts = this.obtainComponentAtts(node, STOP_ATTS, styleClasses);
       return <Stop key={i} {...componentAtts}>{childs}</Stop>;
     case 'ellipse':
-      componentAtts = this.obtainComponentAtts(node, ELLIPSE_ATTS);
+      componentAtts = this.obtainComponentAtts(node, ELLIPSE_ATTS, styleClasses);
       return <Ellipse key={i} {...componentAtts}>{childs}</Ellipse>;
     case 'polygon':
-      componentAtts = this.obtainComponentAtts(node, POLYGON_ATTS);
+      componentAtts = this.obtainComponentAtts(node, POLYGON_ATTS, styleClasses);
       return <Polygon key={i} {...componentAtts}>{childs}</Polygon>;
     case 'polyline':
-      componentAtts = this.obtainComponentAtts(node, POLYLINE_ATTS);
+      componentAtts = this.obtainComponentAtts(node, POLYLINE_ATTS, styleClasses);
       return <Polyline key={i} {...componentAtts}>{childs}</Polyline>;
     case 'text':
-      componentAtts = this.obtainComponentAtts(node, TEXT_ATTS);
+      componentAtts = this.obtainComponentAtts(node, TEXT_ATTS, styleClasses);
       if (componentAtts.y) {
         componentAtts.y = fixYPosition(componentAtts.y, node)
       }
       return <Text key={i} {...componentAtts}>{childs}</Text>;
     case 'tspan':
-      componentAtts = this.obtainComponentAtts(node, TEXT_ATTS);
+      componentAtts = this.obtainComponentAtts(node, TEXT_ATTS, styleClasses);
       if (componentAtts.y) {
         componentAtts.y = fixYPosition(componentAtts.y, node)
       }
@@ -218,7 +218,7 @@ class SvgUri extends Component{
     }
   }
 
-  obtainComponentAtts({attributes}, enabledAttributes) {
+  obtainComponentAtts({attributes}, enabledAttributes, styleClasses) {
     const styleAtts = {};
 
       const classObj = Array.from(attributes).filter(attr => {
