@@ -325,4 +325,4 @@ SvgUri.propTypes = {
   fill: PropTypes.string,
 }
 
-module.exports = SvgUri;
+export default SvgUri;
